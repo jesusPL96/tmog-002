@@ -7,10 +7,6 @@ import java.util.ArrayList;
  */
 public class Solution {
 
-    public static void main(String[] args) {
-        System.out.println(isValid("({[[()]]})"));
-    }
-
     public static boolean isValid(String s) {
 
         var lastCharacters = new ArrayList<Character>();
@@ -69,7 +65,6 @@ public class Solution {
                     }
                     break;
                 default:
-                    return false;
 
             }
 
