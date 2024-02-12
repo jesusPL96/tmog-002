@@ -12,29 +12,24 @@ public class Solution {
 
         var lastCharacters = new ArrayList<Character>();
 
-
         if (s.isEmpty() || s.length() > 10_000) {
             return false;
         }
 
-
         for (int i = 0; i < s.length(); i++) {
 
-
             switch (s.charAt(i)) {
-
 
                 case '(':
                     lastCharacters.add('(');
                     break;
 
-
                 case ')':
                     if (!lastCharacters.isEmpty()) {
-                        int listSize = lastCharacters.size() - 1;
 
-                        if (lastCharacters.get(listSize) == '(') {
-                            lastCharacters.remove(listSize);
+                        int lastPosition = lastCharacters.size() - 1;
+                        if (lastCharacters.get(lastPosition) == '(') {
+                            lastCharacters.remove(lastPosition);
 
                         } else {
                             return false;
@@ -43,14 +38,16 @@ public class Solution {
                         return false;
                     }
                     break;
+
                 case '{':
                     lastCharacters.add('{');
                     break;
+
                 case '}':
                     if (!lastCharacters.isEmpty()) {
-                        int listSize = lastCharacters.size() - 1;
-                        if (lastCharacters.get(listSize) == '{') {
-                            lastCharacters.remove(listSize);
+                        int lastPosition = lastCharacters.size() - 1;
+                        if (lastCharacters.get(lastPosition) == '{') {
+                            lastCharacters.remove(lastPosition);
                         } else {
                             return false;
                         }
@@ -58,14 +55,16 @@ public class Solution {
                         return false;
                     }
                     break;
+
                 case '[':
                     lastCharacters.add('[');
                     break;
+
                 case ']':
                     if (!lastCharacters.isEmpty()) {
-                        int listSize = lastCharacters.size() - 1;
-                        if (lastCharacters.get(listSize) == '[') {
-                            lastCharacters.remove(listSize);
+                        int lastPosition = lastCharacters.size() - 1;
+                        if (lastCharacters.get(lastPosition) == '[') {
+                            lastCharacters.remove(lastPosition);
                         } else {
                             return false;
                         }
@@ -73,12 +72,11 @@ public class Solution {
                         return false;
                     }
                     break;
+
                 default:
 
             }
-
         }
-
 
         return lastCharacters.isEmpty();
     }
